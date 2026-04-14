@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     version="1.1" width="1400" height="1000" viewBox="0 0 1400 1000"
+     content="&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=&quot;0&quot;/&gt;&lt;mxCell id=&quot;1&quot; parent=&quot;0&quot;/&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;">
+  <defs>
+    <style>
+      .flow-box { fill: #dbeafe; stroke: #3b82f6; stroke-width: 1.5; }
+      .flow-title { font: bold 13px Inter, Arial, sans-serif; fill: #1e3a5f; }
+      .process-box { fill: #fee2e2; stroke: #ef4444; stroke-width: 1.5; }
+      .data-box { fill: #fef3c7; stroke: #d97706; stroke-width: 1.5; }
+      .process-text { font: 10px Inter, Arial, sans-serif; fill: #7f1d1d; }
+      .data-text { font: 10px Inter, Arial, sans-serif; fill: #78350f; }
+      .arrow { stroke: #3b82f6; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-label { font: bold 9px Inter, Arial, sans-serif; fill: #1e293b; }
+      .subtitle { font: 12px Inter, Arial, sans-serif; fill: #94a3b8; }
+      .info-box { fill: #d1fae5; stroke: #059669; stroke-width: 1; }
+      .info-text { font: 9px Inter, Arial, sans-serif; fill: #064e3b; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="1000" rx="12" fill="#ffffff"/>
+
+  <rect x="20" y="12" width="1360" height="48" rx="8" fill="#1e293b"/>
+  <text x="700" y="34" text-anchor="middle" style="font: bold 18px Inter, Arial, sans-serif; fill: #ffffff;">LiveLayer Data Flow: End-to-End Streaming Pipeline (30 FPS @ 720p)</text>
+  <text x="700" y="52" class="subtitle" text-anchor="middle">Scenario: User presses Go Live -> Streaming starts -> Frames composited and encoded -> RTSP broadcast</text>
+
+  <!-- Row 1: Equal-width flow boxes -->
+  <rect x="50" y="70" width="300" height="150" class="flow-box"/>
+  <text x="60" y="90" class="flow-title">Stage 1: Camera Capture</text>
+  <rect x="70" y="105" width="260" height="35" class="process-box"/>
+  <text x="200" y="127" class="process-text" text-anchor="middle">CameraX (ImageAnalysis)</text>
+  <text x="70" y="160" class="data-text">Data: YUV_420_888 frame</text>
+  <text x="70" y="175" class="data-text">Rate: 30 FPS (~33 ms)</text>
+  <text x="70" y="190" class="data-text">Size: ~400 KB per frame</text>
+
+  <rect x="370" y="70" width="300" height="150" class="flow-box"/>
+  <text x="380" y="90" class="flow-title">Stage 2: Frame Processing Pipeline</text>
+  <rect x="390" y="105" width="80" height="35" class="process-box"/>
+  <text x="430" y="127" class="process-text" text-anchor="middle">FrameScaler</text>
+  <rect x="480" y="105" width="80" height="35" class="process-box"/>
+  <text x="520" y="127" class="process-text" text-anchor="middle">FrameFitter</text>
+  <rect x="570" y="105" width="80" height="35" class="process-box"/>
+  <text x="610" y="127" class="process-text" text-anchor="middle">Converter</text>
+  <text x="390" y="160" class="data-text">GPU YUV->RGB (avoid CPU)</text>
+  <text x="390" y="175" class="data-text">Aspect ratio: letterbox/crop</text>
+  <text x="390" y="190" class="data-text">Output buffered for GPU</text>
+
+  <rect x="690" y="70" width="300" height="150" class="flow-box"/>
+  <text x="700" y="90" class="flow-title">Stage 3: Widget Rendering</text>
+  <rect x="710" y="105" width="120" height="35" class="process-box"/>
+  <text x="770" y="127" class="process-text" text-anchor="middle">WidgetStore</text>
+  <rect x="850" y="105" width="120" height="35" class="process-box"/>
+  <text x="910" y="127" class="process-text" text-anchor="middle">Dirty Tracking</text>
+  <text x="710" y="160" class="data-text">Grid: 32x18 cells</text>
+  <text x="710" y="175" class="data-text">Types: Text, Counter, Gauge</text>
+  <text x="710" y="190" class="data-text">Output: ARGB_8888 bitmaps</text>
+
+  <rect x="1010" y="70" width="300" height="150" class="flow-box"/>
+  <text x="1020" y="90" class="flow-title">Stage 4: GPU Compositing</text>
+  <rect x="1030" y="105" width="260" height="35" class="process-box"/>
+  <text x="1160" y="127" class="process-text" text-anchor="middle">CompositorEngine</text>
+  <text x="1030" y="160" class="data-text">Bind camera YUV + layer textures</text>
+  <text x="1030" y="175" class="data-text">Apply alpha blending and z-order</text>
+  <text x="1030" y="190" class="data-text">Output composited RGBA</text>
+
+  <!-- Inter-box arrows row 1 -->
+  <path d="M 350 145 L 370 145" class="arrow"/>
+  <text x="360" y="133" class="arrow-label" text-anchor="middle">Raw YUV</text>
+  <path d="M 670 145 L 690 145" class="arrow"/>
+  <text x="680" y="133" class="arrow-label" text-anchor="middle">Processed Frame</text>
+  <path d="M 990 145 L 1010 145" class="arrow"/>
+  <text x="1000" y="133" class="arrow-label" text-anchor="middle">Textures</text>
+
+  <!-- Row 2: Equal-width flow boxes aligned to row-1 columns -->
+  <rect x="370" y="260" width="300" height="150" class="flow-box"/>
+  <text x="380" y="280" class="flow-title">Stage 5: H.264 Hardware Encoding</text>
+  <rect x="390" y="295" width="80" height="35" class="process-box"/>
+  <text x="430" y="317" class="process-text" text-anchor="middle">MediaCodec</text>
+  <rect x="480" y="295" width="80" height="35" class="process-box"/>
+  <text x="520" y="317" class="process-text" text-anchor="middle">NAL Framing</text>
+  <text x="390" y="360" class="data-text">Bitrate: 2 Mbps @ 720p</text>
+  <text x="390" y="375" class="data-text">I-frame: every 30 frames (~1s)</text>
+  <text x="390" y="390" class="data-text">Output: NAL packets</text>
+
+  <rect x="690" y="260" width="300" height="150" class="flow-box"/>
+  <text x="700" y="280" class="flow-title">Stage 6: RTSP Server and Transport</text>
+  <rect x="710" y="295" width="120" height="35" class="process-box"/>
+  <text x="770" y="317" class="process-text" text-anchor="middle">RTP Packetize</text>
+  <rect x="850" y="295" width="120" height="35" class="process-box"/>
+  <text x="910" y="317" class="process-text" text-anchor="middle">TCP/UDP Socket</text>
+  <text x="710" y="360" class="data-text">RFC 3984 (H.264 RTP)</text>
+  <text x="710" y="375" class="data-text">Multi-client broadcast</text>
+  <text x="710" y="390" class="data-text">Adaptive bitrate control</text>
+
+  <!-- Inter-row and row-2 arrows -->
+  <path d="M 1160 220 L 1160 240 L 520 240 L 520 260" class="arrow"/>
+  <text x="840" y="232" class="arrow-label" text-anchor="middle">Composited RGBA</text>
+  <path d="M 670 330 L 690 330" class="arrow"/>
+  <text x="680" y="318" class="arrow-label" text-anchor="middle">NAL A/B Units</text>
+
+  <!-- Clients with clear spacing from stage 6 -->
+  <circle cx="1240" cy="280" r="40" class="data-box"/>
+  <text x="1240" y="280" class="data-text" text-anchor="middle" font-size="11" font-weight="bold">VLC</text>
+  <text x="1240" y="295" class="data-text" text-anchor="middle" font-size="8">Player</text>
+  <circle cx="1240" cy="370" r="40" class="data-box"/>
+  <text x="1240" y="370" class="data-text" text-anchor="middle" font-size="11" font-weight="bold">ffmpeg</text>
+  <circle cx="1240" cy="460" r="40" class="data-box"/>
+  <text x="1240" y="455" class="data-text" text-anchor="middle" font-size="11" font-weight="bold">Browser</text>
+  <text x="1240" y="470" class="data-text" text-anchor="middle" font-size="8">RTSP.js</text>
+  <path d="M 990 300 L 1200 280" class="arrow" stroke-width="1.5"/>
+  <path d="M 990 330 L 1200 370" class="arrow" stroke-width="1.5"/>
+  <path d="M 990 360 L 1200 460" class="arrow" stroke-width="1.5"/>
+
+  <!-- Row 3: Equal-width feedback boxes -->
+  <rect x="50" y="450" width="300" height="140" class="flow-box" fill="#fef3c7" stroke="#d97706"/>
+  <text x="60" y="470" class="flow-title" fill="#78350f">Feedback 1: UI Display</text>
+  <rect x="70" y="490" width="260" height="35" class="process-box" fill="#fee2e2"/>
+  <text x="200" y="512" class="process-text" text-anchor="middle">StreamingBitmap StateFlow</text>
+  <text x="70" y="545" class="info-text">UI renders composited bitmap</text>
+  <text x="70" y="560" class="info-text">Latency: ~33 ms (same frame)</text>
+
+  <rect x="370" y="450" width="300" height="140" class="flow-box" fill="#fef3c7" stroke="#d97706"/>
+  <text x="380" y="470" class="flow-title" fill="#78350f">Feedback 2: Control API</text>
+  <rect x="390" y="490" width="260" height="35" class="process-box" fill="#fee2e2"/>
+  <text x="520" y="512" class="process-text" text-anchor="middle">Ktor HTTP Server</text>
+  <text x="390" y="545" class="info-text">POST /config updates overlays</text>
+  <text x="390" y="560" class="info-text">GET /status returns metrics</text>
+
+  <rect x="690" y="450" width="300" height="140" class="flow-box" fill="#fef3c7" stroke="#d97706"/>
+  <text x="700" y="470" class="flow-title" fill="#78350f">Feedback 3: Performance Monitor</text>
+  <rect x="710" y="490" width="260" height="35" class="process-box" fill="#fee2e2"/>
+  <text x="840" y="512" class="process-text" text-anchor="middle">PerformanceMonitor</text>
+  <text x="710" y="545" class="info-text">Frame latency &gt;33ms?</text>
+  <text x="710" y="560" class="info-text">Scale overlays to 0.75x</text>
+
+  <!-- Scenarios -->
+  <rect x="50" y="640" width="1300" height="100" class="info-box" stroke-width="1.5"/>
+  <text x="60" y="660" class="info-text" font-weight="bold">Scenario: User changes overlay widget color on the fly</text>
+  <text x="60" y="677" class="info-text">1. UI sends POST /config with new color.</text>
+  <text x="60" y="691" class="info-text">2. Server validates, saves config, and emits update event.</text>
+  <text x="60" y="705" class="info-text">3. WidgetStore marks dirty and re-renders affected bitmap.</text>
+  <text x="60" y="719" class="info-text">4. Compositor binds updated texture on next frame.</text>
+  <text x="60" y="733" class="info-text">5. Clients see update within about one frame.</text>
+
+  <rect x="50" y="770" width="1300" height="140" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="60" y="790" class="info-text" font-weight="bold" fill="#78350f">Scenario: Network congestion and adaptive recovery</text>
+  <text x="60" y="807" class="info-text" fill="#78350f">1. Monitor detects low FPS / high frame latency.</text>
+  <text x="60" y="821" class="info-text" fill="#78350f">2. Adaptive quality lowers bitrate 2000 Kbps to 1000 Kbps.</text>
+  <text x="60" y="835" class="info-text" fill="#78350f">3. Encoder updates bitrate via MediaCodec parameters.</text>
+  <text x="60" y="849" class="info-text" fill="#78350f">4. Overlay scale reduces 1.0x to 0.75x to cut GPU load.</text>
+  <text x="60" y="863" class="info-text" fill="#78350f">5. Latency recovers to below real-time threshold.</text>
+  <text x="60" y="877" class="info-text" fill="#78350f">6. Bitrate ramps back up when network stabilizes.</text>
+  <text x="60" y="891" class="info-text" fill="#78350f">7. Clients continue playback with minimal disruption.</text>
+</svg>

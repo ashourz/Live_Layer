@@ -1,0 +1,250 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     version="1.1" width="1400" height="900" viewBox="0 0 1400 900"
+     content="&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=&quot;0&quot;/&gt;&lt;mxCell id=&quot;1&quot; parent=&quot;0&quot;/&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;">
+  <defs>
+    <style>
+      .layer-box { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1.5; }
+      .layer-title { font: bold 14px Inter, Arial, sans-serif; fill: #1e293b; }
+      .component-box { fill: #dbeafe; stroke: #3b82f6; stroke-width: 1.5; }
+      .component-text { font: 11px Inter, Arial, sans-serif; fill: #1e3a5f; }
+      .arrow { stroke: #6366f1; stroke-width: 2; marker-end: url(#arrowhead); }
+      .label { font: 10px Inter, Arial, sans-serif; fill: #334155; }
+      .subtitle { font: 12px Inter, Arial, sans-serif; fill: #94a3b8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#6366f1"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="900" rx="12" fill="#ffffff"/>
+
+  <!-- Header -->
+  <rect x="20" y="12" width="1360" height="48" rx="8" fill="#1e293b"/>
+  <text x="700" y="34" text-anchor="middle" style="font: bold 18px Inter, Arial, sans-serif; fill: #ffffff;">LiveLayer Architecture — Real-Time Streaming Pipeline</text>
+  <text x="700" y="52" class="subtitle" text-anchor="middle">Layered system view from Compose UI through Android hardware and runtime services</text>
+
+  <!-- LAYER 1: UI LAYER -->
+  <rect x="50" y="72" width="1300" height="120" class="layer-box"/>
+  <text x="60" y="92" class="layer-title">Presentation Layer — Jetpack Compose (Material3)</text>
+  
+  <rect x="220" y="107" width="120" height="70" class="component-box"/>
+  <text x="280" y="132" class="component-text" text-anchor="middle">StudioScreen</text>
+  <text x="280" y="147" class="component-text" text-anchor="middle" font-size="9">(Preview, Setup)</text>
+  
+  <rect x="360" y="107" width="120" height="70" class="component-box"/>
+  <text x="420" y="132" class="component-text" text-anchor="middle">LiveScreen</text>
+  <text x="420" y="147" class="component-text" text-anchor="middle" font-size="9">(Broadcasting)</text>
+  
+  <rect x="500" y="107" width="120" height="70" class="component-box"/>
+  <text x="560" y="132" class="component-text" text-anchor="middle">SettingsScreen</text>
+  <text x="560" y="147" class="component-text" text-anchor="middle" font-size="9">(Config, Auth)</text>
+  
+  <rect x="640" y="107" width="120" height="70" class="component-box"/>
+  <text x="700" y="132" class="component-text" text-anchor="middle">MVVM ViewModels</text>
+  <text x="700" y="147" class="component-text" text-anchor="middle" font-size="9">(StateFlow, Events)</text>
+  
+  <rect x="780" y="107" width="120" height="70" class="component-box"/>
+  <text x="840" y="127" class="component-text" text-anchor="middle">Theme System</text>
+  <text x="840" y="142" class="component-text" text-anchor="middle" font-size="9">Material You + Dynamic</text>
+  
+  <rect x="920" y="107" width="120" height="70" class="component-box"/>
+  <text x="980" y="127" class="component-text" text-anchor="middle">Navigation Stack</text>
+  <text x="980" y="142" class="component-text" text-anchor="middle" font-size="9">Type-Safe Routes</text>
+  
+  <rect x="1060" y="107" width="120" height="70" class="component-box"/>
+  <text x="1120" y="127" class="component-text" text-anchor="middle">Jetpack Lifecycle</text>
+  <text x="1120" y="142" class="component-text" text-anchor="middle" font-size="9">Activity, Service</text>
+
+  
+
+  <!-- LAYER 2: SERVICE &amp; REPOSITORY LAYER -->
+  <rect x="50" y="210" width="1300" height="100" class="layer-box"/>
+  <text x="60" y="230" class="layer-title">Service &amp; Repository Layer</text>
+  
+  <rect x="150" y="245" width="120" height="55" class="component-box"/>
+  <text x="210" y="265" class="component-text" text-anchor="middle">StreamingService</text>
+  <text x="210" y="278" class="component-text" text-anchor="middle" font-size="9">(Foreground)</text>
+  
+  <rect x="290" y="245" width="120" height="55" class="component-box"/>
+  <text x="350" y="265" class="component-text" text-anchor="middle">IStreamingService</text>
+  <text x="350" y="278" class="component-text" text-anchor="middle" font-size="9">Manager (Interface)</text>
+  
+  <rect x="430" y="245" width="120" height="55" class="component-box"/>
+  <text x="490" y="260" class="component-text" text-anchor="middle">ConfigManager</text>
+  <text x="490" y="278" class="component-text" text-anchor="middle" font-size="9">(JSON ↔ Disk)</text>
+  
+  <rect x="570" y="245" width="120" height="55" class="component-box"/>
+  <text x="630" y="260" class="component-text" text-anchor="middle">SceneRepository</text>
+  <text x="630" y="278" class="component-text" text-anchor="middle" font-size="9">(Overlays, State)</text>
+  
+  <rect x="710" y="245" width="120" height="55" class="component-box"/>
+  <text x="770" y="265" class="component-text" text-anchor="middle">NetworkMonitor</text>
+  <text x="770" y="278" class="component-text" text-anchor="middle" font-size="9">(IP Detection)</text>
+  
+  <rect x="850" y="245" width="120" height="55" class="component-box"/>
+  <text x="910" y="265" class="component-text" text-anchor="middle">PerformanceMonitor</text>
+  <text x="910" y="278" class="component-text" text-anchor="middle" font-size="9">(Metrics)</text>
+  
+  <rect x="990" y="245" width="120" height="55" class="component-box"/>
+  <text x="1050" y="265" class="component-text" text-anchor="middle">ErrorRecovery</text>
+  <text x="1050" y="278" class="component-text" text-anchor="middle" font-size="9">(Resilience)</text>
+  
+  <rect x="1130" y="245" width="120" height="55" class="component-box"/>
+  <text x="1190" y="265" class="component-text" text-anchor="middle">Permission</text>
+  <text x="1190" y="278" class="component-text" text-anchor="middle" font-size="9">Repository</text>
+
+  
+
+  <!-- LAYER 3: CORE SUBSYSTEMS -->
+  <rect x="50" y="340" width="1300" height="150" class="layer-box"/>
+  <text x="60" y="360" class="layer-title">Core Subsystems Layer</text>
+  
+  <!-- Camera subsystem -->
+  <rect x="150" y="375" width="120" height="100" class="component-box"/>
+  <text x="210" y="395" class="component-text" text-anchor="middle">Camera Subsystem</text>
+  <text x="210" y="410" class="component-text" text-anchor="middle" font-size="9">ICameraManager</text>
+  <text x="210" y="423" class="component-text" text-anchor="middle" font-size="9">CameraX</text>
+  <text x="210" y="436" class="component-text" text-anchor="middle" font-size="9">YUV Frames</text>
+  <text x="210" y="450" class="component-text" text-anchor="middle" font-size="9">30 FPS</text>
+  <text x="210" y="463" class="component-text" text-anchor="middle" font-size="9">(400 KB/frame)</text>
+  
+  <!-- Processing Pipeline -->
+  <rect x="290" y="375" width="120" height="100" class="component-box"/>
+  <text x="350" y="393" class="component-text" text-anchor="middle">Frame Processing</text>
+  <text x="350" y="408" class="component-text" text-anchor="middle" font-size="9">Pipeline</text>
+  <text x="350" y="421" class="component-text" text-anchor="middle" font-size="9">FrameScaler</text>
+  <text x="350" y="434" class="component-text" text-anchor="middle" font-size="9">(GPU YUV crop)</text>
+  <text x="350" y="447" class="component-text" text-anchor="middle" font-size="9">Fitter, Converter</text>
+  <text x="350" y="460" class="component-text" text-anchor="middle" font-size="9">ML Hooks</text>
+  
+  <!-- Widget System -->
+  <rect x="430" y="375" width="120" height="100" class="component-box"/>
+  <text x="490" y="393" class="component-text" text-anchor="middle">Widget Overlay</text>
+  <text x="490" y="408" class="component-text" text-anchor="middle" font-size="9">System</text>
+  <text x="490" y="421" class="component-text" text-anchor="middle" font-size="9">GridLayout 32×18</text>
+  <text x="490" y="434" class="component-text" text-anchor="middle" font-size="9">WidgetRenderer</text>
+  <text x="490" y="447" class="component-text" text-anchor="middle" font-size="9">Registry Pattern</text>
+  <text x="490" y="460" class="component-text" text-anchor="middle" font-size="9">BitmapPool</text>
+  
+  <!-- Compositor Engine -->
+  <rect x="570" y="375" width="120" height="100" class="component-box"/>
+  <text x="630" y="393" class="component-text" text-anchor="middle">Compositor</text>
+  <text x="630" y="408" class="component-text" text-anchor="middle" font-size="9">Engine (GPU)</text>
+  <text x="630" y="421" class="component-text" text-anchor="middle" font-size="9">OpenGL ES 3.0</text>
+  <text x="630" y="434" class="component-text" text-anchor="middle" font-size="9">EGL Context</text>
+  <text x="630" y="447" class="component-text" text-anchor="middle" font-size="9">Z-order Blending</text>
+  <text x="630" y="460" class="component-text" text-anchor="middle" font-size="9">TexturePool</text>
+  
+  <!-- H264 Encoder -->
+  <rect x="710" y="375" width="120" height="100" class="component-box"/>
+  <text x="770" y="393" class="component-text" text-anchor="middle">H.264 Encoder</text>
+  <text x="770" y="408" class="component-text" text-anchor="middle" font-size="9">MediaCodec Hw</text>
+  <text x="770" y="421" class="component-text" text-anchor="middle" font-size="9">2 Mbps @ 720p</text>
+  <text x="770" y="434" class="component-text" text-anchor="middle" font-size="9">CBR, 30 FPS</text>
+  <text x="770" y="447" class="component-text" text-anchor="middle" font-size="9">NAL Units</text>
+  <text x="770" y="460" class="component-text" text-anchor="middle" font-size="9">Bitrate Control</text>
+  
+  <!-- RTSP Streaming -->
+  <rect x="850" y="375" width="120" height="100" class="component-box"/>
+  <text x="910" y="393" class="component-text" text-anchor="middle">RTSP Streaming</text>
+  <text x="910" y="408" class="component-text" text-anchor="middle" font-size="9">Server &amp; Engine</text>
+  <text x="910" y="421" class="component-text" text-anchor="middle" font-size="9">RTP Transport</text>
+  <text x="910" y="434" class="component-text" text-anchor="middle" font-size="9">TCP/UDP Socket</text>
+  <text x="910" y="447" class="component-text" text-anchor="middle" font-size="9">Multi-client</text>
+  <text x="910" y="460" class="component-text" text-anchor="middle" font-size="9">RFC 3984</text>
+  
+  <!-- Ktor HTTP API -->
+  <rect x="990" y="375" width="120" height="100" class="component-box"/>
+  <text x="1050" y="393" class="component-text" text-anchor="middle">Ktor HTTP API</text>
+  <text x="1050" y="408" class="component-text" text-anchor="middle" font-size="9">Control Server</text>
+  <text x="1050" y="421" class="component-text" text-anchor="middle" font-size="9">Bearer Token Auth</text>
+  <text x="1050" y="434" class="component-text" text-anchor="middle" font-size="9">/config /status</text>
+  <text x="1050" y="447" class="component-text" text-anchor="middle" font-size="9">/overlays /logs</text>
+  <text x="1050" y="460" class="component-text" text-anchor="middle" font-size="9">&lt;500 ms latency</text>
+  
+  <!-- Logging -->
+  <rect x="1130" y="375" width="120" height="100" class="component-box"/>
+  <text x="1190" y="395" class="component-text" text-anchor="middle">Logging</text>
+  <text x="1190" y="410" class="component-text" text-anchor="middle" font-size="9">&amp; Telemetry</text>
+  <text x="1190" y="423" class="component-text" text-anchor="middle" font-size="9">Timber</text>
+  <text x="1190" y="436" class="component-text" text-anchor="middle" font-size="9">Rotation</text>
+  <text x="1190" y="449" class="component-text" text-anchor="middle" font-size="9">Metrics</text>
+
+  
+
+  <!-- LAYER 4: PERSISTENCE &amp; DI -->
+  <rect x="50" y="520" width="1300" height="100" class="layer-box"/>
+  <text x="60" y="540" class="layer-title">Persistence &amp; Dependency Injection Layer</text>
+  
+  <rect x="220" y="555" width="120" height="55" class="component-box"/>
+  <text x="280" y="575" class="component-text" text-anchor="middle">JSON Config</text>
+  <text x="280" y="588" class="component-text" text-anchor="middle" font-size="9">(KotlinX Serialization)</text>
+  
+  <rect x="360" y="555" width="120" height="55" class="component-box"/>
+  <text x="420" y="575" class="component-text" text-anchor="middle">EncryptedSharedPrefs</text>
+  <text x="420" y="588" class="component-text" text-anchor="middle" font-size="9">(Auth Tokens)</text>
+  
+  <rect x="500" y="555" width="120" height="55" class="component-box"/>
+  <text x="560" y="575" class="component-text" text-anchor="middle">Scene Repository</text>
+  <text x="560" y="588" class="component-text" text-anchor="middle" font-size="9">(Ready for Room)</text>
+  
+  <rect x="640" y="555" width="120" height="55" class="component-box"/>
+  <text x="700" y="575" class="component-text" text-anchor="middle">Hilt / Dagger</text>
+  <text x="700" y="588" class="component-text" text-anchor="middle" font-size="9">(Dependency Injection)</text>
+  
+  <rect x="780" y="555" width="120" height="55" class="component-box"/>
+  <text x="840" y="575" class="component-text" text-anchor="middle">Coroutines</text>
+  <text x="840" y="588" class="component-text" text-anchor="middle" font-size="9">(Async + Structured)</text>
+  
+  <rect x="920" y="555" width="120" height="55" class="component-box"/>
+  <text x="980" y="575" class="component-text" text-anchor="middle">Flow State</text>
+  <text x="980" y="588" class="component-text" text-anchor="middle" font-size="9">(Reactive Binding)</text>
+  
+  <rect x="1060" y="555" width="120" height="55" class="component-box"/>
+  <text x="1120" y="575" class="component-text" text-anchor="middle">Testing Framework</text>
+  <text x="1120" y="588" class="component-text" text-anchor="middle" font-size="9">(JUnit, Robolectric)</text>
+
+  
+
+  <!-- LAYER 5: HARDWARE &amp; ANDROID -->
+  <rect x="50" y="645" width="1300" height="100" class="layer-box"/>
+  <text x="60" y="665" class="layer-title">Android Platform &amp; Hardware</text>
+  
+  <rect x="150" y="680" width="120" height="55" class="component-box"/>
+  <text x="210" y="700" class="component-text" text-anchor="middle">Camera Hardware</text>
+  <text x="210" y="713" class="component-text" text-anchor="middle" font-size="9">(CameraX Bridge)</text>
+  
+  <rect x="290" y="680" width="120" height="55" class="component-box"/>
+  <text x="350" y="700" class="component-text" text-anchor="middle">GPU / OpenGL ES</text>
+  <text x="350" y="713" class="component-text" text-anchor="middle" font-size="9">(EGL Context)</text>
+  
+  <rect x="430" y="680" width="120" height="55" class="component-box"/>
+  <text x="490" y="700" class="component-text" text-anchor="middle">MediaCodec</text>
+  <text x="490" y="713" class="component-text" text-anchor="middle" font-size="9">(H.264 Encoder)</text>
+  
+  <rect x="570" y="680" width="120" height="55" class="component-box"/>
+  <text x="630" y="700" class="component-text" text-anchor="middle">Network Stack</text>
+  <text x="630" y="713" class="component-text" text-anchor="middle" font-size="9">(TCP/UDP Sockets)</text>
+  
+  <rect x="710" y="680" width="120" height="55" class="component-box"/>
+  <text x="770" y="700" class="component-text" text-anchor="middle">Android Runtime</text>
+  <text x="770" y="713" class="component-text" text-anchor="middle" font-size="9">(ART, GC)</text>
+  
+  <rect x="850" y="680" width="120" height="55" class="component-box"/>
+  <text x="910" y="700" class="component-text" text-anchor="middle">Storage</text>
+  <text x="910" y="713" class="component-text" text-anchor="middle" font-size="9">(Context.filesDir)</text>
+  
+  <rect x="990" y="680" width="120" height="55" class="component-box"/>
+  <text x="1050" y="700" class="component-text" text-anchor="middle">Permissions</text>
+  <text x="1050" y="713" class="component-text" text-anchor="middle" font-size="9">(Runtime)</text>
+  
+  <rect x="1130" y="680" width="120" height="55" class="component-box"/>
+  <text x="1190" y="700" class="component-text" text-anchor="middle">System Logs</text>
+  <text x="1190" y="713" class="component-text" text-anchor="middle" font-size="9">(Logcat)</text>
+
+  <!-- Performance Note -->
+  <rect x="50" y="780" width="1300" height="60" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="60" y="800" class="label" font-weight="bold">Performance Target: 30 FPS @ 720p = &lt;33ms per frame | GPU Compositing: >20 FPS on Snapdragon 665+ | Memory: &lt;120 MB heap, &lt;80 MB GPU textures</text>
+  <text x="60" y="815" class="label" font-weight="bold">Architecture: Interface-Driven, Modular, Async-First (Coroutines) | 131+ Unit Tests | Single Device RTSP Server</text>
+
+</svg>
