@@ -11,6 +11,7 @@
       .data-text { font: 10px Inter, Arial, sans-serif; fill: #78350f; }
       .arrow { stroke: #3b82f6; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
       .arrow-label { font: bold 9px Inter, Arial, sans-serif; fill: #1e293b; }
+      .arrow-label-chip { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1; }
       .subtitle { font: 12px Inter, Arial, sans-serif; fill: #94a3b8; }
       .info-box { fill: #d1fae5; stroke: #059669; stroke-width: 1; }
       .info-text { font: 9px Inter, Arial, sans-serif; fill: #064e3b; }
@@ -67,10 +68,13 @@
 
   <!-- Inter-box arrows row 1 -->
   <path d="M 350 145 L 370 145" class="arrow"/>
+  <rect x="334" y="122" width="52" height="16" rx="6" class="arrow-label-chip"/>
   <text x="360" y="133" class="arrow-label" text-anchor="middle">Raw YUV</text>
   <path d="M 670 145 L 690 145" class="arrow"/>
+  <rect x="632" y="122" width="96" height="16" rx="6" class="arrow-label-chip"/>
   <text x="680" y="133" class="arrow-label" text-anchor="middle">Processed Frame</text>
   <path d="M 990 145 L 1010 145" class="arrow"/>
+  <rect x="971" y="122" width="58" height="16" rx="6" class="arrow-label-chip"/>
   <text x="1000" y="133" class="arrow-label" text-anchor="middle">Textures</text>
 
   <!-- Row 2: Equal-width flow boxes aligned to row-1 columns -->
@@ -96,8 +100,10 @@
 
   <!-- Inter-row and row-2 arrows -->
   <path d="M 1160 220 L 1160 240 L 520 240 L 520 260" class="arrow"/>
+  <rect x="792" y="221" width="96" height="16" rx="6" class="arrow-label-chip"/>
   <text x="840" y="232" class="arrow-label" text-anchor="middle">Composited RGBA</text>
   <path d="M 670 330 L 690 330" class="arrow"/>
+  <rect x="637" y="307" width="86" height="16" rx="6" class="arrow-label-chip"/>
   <text x="680" y="318" class="arrow-label" text-anchor="middle">NAL A/B Units</text>
 
   <!-- Clients with clear spacing from stage 6 -->

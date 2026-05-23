@@ -11,6 +11,7 @@
       .state-note { font: 11px Inter, Arial, sans-serif; fill: #334155; }
       .edge { stroke: #3b82f6; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
       .edge-text { font: bold 11px Inter, Arial, sans-serif; fill: #1e3a5f; }
+      .edge-label-chip { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1; }
       .legend-box { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1.5; }
       .legend-text { font: 12px Inter, Arial, sans-serif; fill: #334155; }
     </style>
@@ -61,38 +62,49 @@
 
   <!-- Primary forward transitions -->
   <path d="M 310 146 L 340 146" class="edge"/>
+  <rect x="293" y="118" width="64" height="18" rx="6" class="edge-label-chip"/>
   <text x="325" y="132" class="edge-text" text-anchor="middle">Go Live</text>
 
   <path d="M 560 146 L 590 146" class="edge"/>
+  <rect x="541" y="118" width="68" height="18" rx="6" class="edge-label-chip"/>
   <text x="575" y="132" class="edge-text" text-anchor="middle">setup ok</text>
 
   <path d="M 810 146 L 840 146" class="edge"/>
+  <rect x="774" y="118" width="102" height="18" rx="6" class="edge-label-chip"/>
   <text x="825" y="132" class="edge-text" text-anchor="middle">first keyframe</text>
 
   <path d="M 1060 146 L 1090 146" class="edge"/>
+  <rect x="1020" y="118" width="110" height="18" rx="6" class="edge-label-chip"/>
   <text x="1075" y="132" class="edge-text" text-anchor="middle">latency &gt; 33 ms</text>
 
   <!-- Recovery and error routing with non-overlapping paths -->
   <path d="M 1090 170 L 1060 170" class="edge"/>
+  <rect x="1027" y="172" width="96" height="18" rx="6" class="edge-label-chip"/>
   <text x="1075" y="186" class="edge-text" text-anchor="middle">network recovers</text>
 
   <path d="M 930 192 L 930 260" class="edge"/>
+  <rect x="867" y="212" width="76" height="18" rx="6" class="edge-label-chip"/>
   <text x="905" y="226" class="edge-text" text-anchor="middle">disconnect</text>
 
   <path d="M 840 306 L 810 306" class="edge"/>
+  <rect x="769" y="278" width="112" height="18" rx="6" class="edge-label-chip"/>
   <text x="825" y="292" class="edge-text" text-anchor="middle">retry exhausted</text>
 
   <path d="M 970 260 L 970 192" class="edge"/>
+  <rect x="956" y="212" width="78" height="18" rx="6" class="edge-label-chip"/>
   <text x="995" y="226" class="edge-text" text-anchor="middle">recovered</text>
 
   <path d="M 590 306 L 560 306" class="edge"/>
+  <rect x="523" y="278" width="104" height="18" rx="6" class="edge-label-chip"/>
   <text x="575" y="292" class="edge-text" text-anchor="middle">stop requested</text>
 
   <path d="M 450 260 L 450 192" class="edge"/>
+  <rect x="430" y="212" width="104" height="18" rx="6" class="edge-label-chip"/>
   <text x="482" y="226" class="edge-text" text-anchor="middle">restart stream</text>
 
   <!-- Global stop bus -->
   <path d="M 950 352 L 950 390 L 450 390 L 450 352" class="edge"/>
+  <rect x="628" y="368" width="144" height="18" rx="6" class="edge-label-chip"/>
   <text x="700" y="382" class="edge-text" text-anchor="middle">global stop / app exit</text>
 
   <!-- Legend -->
