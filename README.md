@@ -14,6 +14,36 @@ The system captures camera frames via CameraX, renders declarative grid-based HT
 
 ---
 
+## Product Screenshots
+
+Scene management, widget editing, runtime overlays, and the expanded settings flow from the current Android build:
+
+| Scene and Layer Control | Scene Layer Stack | Widget Layout Editing | Widget Style Editing |
+|---|---|---|---|
+| <img src="assets/livelayer/screenshots/scene_editor_default_hud.png" alt="Scene editor default HUD" height="220" /> | <img src="assets/livelayer/screenshots/scene_editor_1.png" alt="Scene editor layer stack" height="220" /> | <img src="assets/livelayer/screenshots/widget_editor_layout_dark.png" alt="Widget layout editor" height="220" /> | <img src="assets/livelayer/screenshots/widget_editor_style_dark.png" alt="Widget style editor" height="220" /> |
+
+| Live HUD View | Stream Diagnostics |
+|---|---|
+| <img src="assets/livelayer/screenshots/live_vertical_downtown_walk_default_hud.png" alt="Vertical live view with HUD" height="220" /> | <img src="assets/livelayer/screenshots/live_vertical_stream_statistics.png" alt="Live stream statistics panel" height="220" /> |
+
+| Settings Hub | Output Quality | Network Settings | Performance Settings | Advanced Settings |
+|---|---|---|---|---|
+| <img src="assets/livelayer/screenshots/app_settings.png" alt="App settings screen" height="220" /> | <img src="assets/livelayer/screenshots/settings_output_quality.png" alt="Output quality settings" height="220" /> | <img src="assets/livelayer/screenshots/settings_network.png" alt="Network settings" height="220" /> | <img src="assets/livelayer/screenshots/settings_performance.png" alt="Performance settings" height="220" /> | <img src="assets/livelayer/screenshots/settings_advanced.png" alt="Advanced settings" height="220" /> |
+
+## Widget Gallery Samples
+
+Representative widgets currently available in the overlay system:
+
+| Analog Clock | Audio Level | Compass | FPS Counter | HUD Map |
+|---|---|---|---|---|
+| <img src="assets/livelayer/widget-gallery/analog_clock.png" alt="Analog clock" height="220" /> | <img src="assets/livelayer/widget-gallery/audio_level.png" alt="Audio level" height="220" /> | <img src="assets/livelayer/widget-gallery/compass_rose.png" alt="Compass rose" height="220" /> | <img src="assets/livelayer/widget-gallery/fps_counter.png" alt="FPS counter" height="220" /> | <img src="assets/livelayer/widget-gallery/hud_map.png" alt="HUD map" height="220" /> |
+
+| HUD Weather | Status Bar | Stopwatch | Text | Digital Clock |
+|---|---|---|---|---|
+| <img src="assets/livelayer/widget-gallery/hud_weather.png" alt="HUD weather" height="220" /> | <img src="assets/livelayer/widget-gallery/status_bar.png" alt="Status bar" height="220" /> | <img src="assets/livelayer/widget-gallery/stop_watch.png" alt="Stopwatch" height="220" /> | <img src="assets/livelayer/widget-gallery/text.png" alt="Text widget" height="220" /> | <img src="assets/livelayer/widget-gallery/digital_clock.png" alt="Digital clock" height="220" /> |
+
+---
+
 ## Architecture
 
 ![System Architecture Diagram](diagrams/livelayer_architecture_v2.drawio.svg)
