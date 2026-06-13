@@ -608,11 +608,10 @@ This repository contains a sanitized subset of the system, focusing on architect
 - Fragment shaders + OpenGL setup
 - Ktor endpoint handlers (no auth key)
 - Config schema + JSON validators
-- 131+ unit tests (layout, renderer, config validation)
+- UI screens (proprietary Compose layouts)
 - Performance monitoring logic
 
 ❌ **Not Included:**
-- UI screens (proprietary Compose layouts)
 - Full streaming implementation (RTSP server details)
 - MediaCodec encoder state machine (internal Android API)
 - Proprietary ML integrations
